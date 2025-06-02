@@ -1,5 +1,3 @@
-// backend/src/App.ts
-
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import cron from 'node-cron';
@@ -29,18 +27,17 @@ export class App {
   }
 
   private setupRoutes(): void {
-    // Здоровье (health check)
+    //чек работоспособносчти
     this.expressApp.get('/health', (_req: Request, res: Response) => {
       res.status(200).json({ status: 'ok' });
     });
 
-    // Регистрируем WeatherController
     const weatherController = new WeatherController(this.auth);
     weatherController.register(this.expressApp);
   }
 
   private setupErrorHandling(): void {
-    // Общий middleware-обработчик ошибок
+    //middleware-обработчик ошибок
     this.expressApp.use(
       (err: any, _req: Request, res: Response, _next: NextFunction) => {
         console.error('Controller Error:', err);
@@ -52,11 +49,10 @@ export class App {
   }
 
   private setupCronJobs(): void {
-    // Пример: каждый день в 00:00 чистим старые записи (older than 30 days)
+    //каждый день в 00:00 чистим старые записи
     const ttl = parseInt(process.env.CACHE_TTL_SEC || '900', 10);
     cron.schedule('0 0 * * *', () => {
       console.log(`Cron job triggered: можно тут вставить вызов purgeOldFiles.`);
-      // Например: this.weatherService.purgeOldFiles(days);
     });
   }
 

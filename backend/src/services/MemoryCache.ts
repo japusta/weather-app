@@ -1,10 +1,8 @@
-// backend/src/services/MemoryCache.ts
 import { ICache } from './ICache';
 
 /**
- * Простейшая in-memory реализация ICache.
- * Хранит данные в объекте и очищает по TTL через setTimeout.
- * Не подходит для продакшена, но удобна для тестов и демо.
+ * in-memory реализация ICache
+ * Хранит данные в объекте и очищает по TTL через setTimeout
  */
 export class MemoryCache<T> implements ICache<T> {
   private store = new Map<string, { value: T; expiresAt: number }>();
@@ -13,7 +11,7 @@ export class MemoryCache<T> implements ICache<T> {
     const entry = this.store.get(key);
     if (!entry) return null;
     if (Date.now() > entry.expiresAt) {
-      // Удаляем устаревшую запись
+      //удалить устаревшую запись
       this.store.delete(key);
       return null;
     }

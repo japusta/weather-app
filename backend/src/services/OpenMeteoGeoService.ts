@@ -1,11 +1,9 @@
-// backend/src/services/OpenMeteoGeoService.ts
-
 import axios from 'axios';
 import { IGeoService } from './IGeoService';
 import { GeocodeResult } from '../types/GeocodeResult';
 
 /**
- * Реализация IGeoService для Open-Meteo Geocoding API.
+ * Реализация IGeoService для Open-Meteo Geocoding API
  */
 export class OpenMeteoGeoService implements IGeoService {
   private readonly url = 'https://geocoding-api.open-meteo.com/v1/search';

@@ -1,8 +1,6 @@
-// backend/src/types/GeocodeResult.ts
-
 /**
- * Тип ответа от Open-Meteo Geocoding API.
- * Поле results — массив объектов, в котором нам интересны latitude, longitude.
+ * ответ от Open-Meteo Geocoding API
+ * Поле resultsэто  массив объектов
  */
  export interface GeocodeResult {
   results: Array<{

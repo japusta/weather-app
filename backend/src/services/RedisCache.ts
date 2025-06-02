@@ -1,5 +1,3 @@
-// backend/src/services/RedisCache.ts
-
 import { createClient, RedisClientType } from 'redis';
 import { ICache } from './ICache';
 
@@ -16,18 +14,26 @@ export class RedisCache<T> implements ICache<T> {
 
   public async get(key: string): Promise<T | null> {
     const data = await this.client.get(key);
-    if (!data) return null;
+    console.log(`[RedisCache] GET key="${key}"`);
+
+    if (!data) {
+      console.log(`[RedisCache] MISS for key="${key}"`);
+      return null;
+    }
     // Парсим JSON
     try {
-      return JSON.parse(data) as T;
+      const parsed = JSON.parse(data) as T;
+      console.log(`[RedisCache] HIT for key="${key}"`);
+      return parsed;
     } catch {
+      console.log(`[RedisCache] ERROR parsing data for key="${key}", returning null`);
       return null;
     }
   }
 
   public async set(key: string, value: T, ttlSeconds: number): Promise<void> {
+    console.log(`[RedisCache] SET key="${key}" (ttl=${ttlSeconds}s)`);
     const str = JSON.stringify(value);
-    // Устанавливаем с TTL
     await this.client.set(key, str, { EX: ttlSeconds });
   }
 }

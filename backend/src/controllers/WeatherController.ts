@@ -24,8 +24,8 @@ export class WeatherController {
     // Если Redis запускается на дефолтном порту 6379, то:
     // 1) либо в .env у вас REDIS_URL=redis://localhost:6379
     // 2) либо используем MemoryCache для быстрого теста без Redis
-    //this.cache = new RedisCache<{ time: string[]; temperature_2m: number[] }>(process.env.REDIS_URL!);
-    this.cache = new MemoryCache<{ time: string[]; temperature_2m: number[] }>();
+    this.cache = new RedisCache<{ time: string[]; temperature_2m: number[] }>(process.env.REDIS_URL!);
+    // this.cache = new MemoryCache<{ time: string[]; temperature_2m: number[] }>();
 
     const ttl = parseInt(process.env.CACHE_TTL_SEC || '900', 10);
     this.weatherService = new WeatherService(this.geoService, this.weatherApi, this.cache, ttl);

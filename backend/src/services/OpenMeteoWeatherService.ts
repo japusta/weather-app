@@ -1,18 +1,16 @@
-// backend/src/services/OpenMeteoWeatherService.ts
-
 import axios from 'axios';
 import { IWeatherApi } from './IWeatherApi';
 import { WeatherForecast } from '../types/WeatherForecast';
 
 /**
- * Реализация IWeatherApi для Open-Meteo Forecast API.
- * В ответ мы берём только поля hourly.time[] и hourly.temperature_2m[].
+ * Реализация IWeatherApi
+ * В ответ мы берём только поля hourly.time[] и hourly.temperature_2m[]
  */
 export class OpenMeteoWeatherService implements IWeatherApi {
   private readonly url = 'https://api.open-meteo.com/v1/forecast';
 
   public async getHourlyForecast(latitude: number, longitude: number): Promise<{ time: string[]; temperature_2m: number[] }> {
-    // Пример запроса:
+
     // https://api.open-meteo.com/v1/forecast?latitude=55.75&longitude=37.61&hourly=temperature_2m&timezone=UTC
     const resp = await axios.get<WeatherForecast>(this.url, {
       params: {
