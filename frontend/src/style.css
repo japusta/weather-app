@@ -1,0 +1,210 @@
+/* public/style.css */
+
+:root {
+  --primary-color: #4a90e2;
+  --bg-color: #f5f7fa;
+  --text-color: #333;
+  --error-color: #d9534f;
+  --btn-hover: #357ab8;
+  --secondary-color: #6c757d;
+  --favorite-color: #ffc107;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Заголовок */
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* Переключатель единиц */
+.unit-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.unit-wrapper label {
+  font-size: 0.9rem;
+}
+.unit-wrapper input[type="radio"] {
+  margin-right: 0.3rem;
+}
+
+/* Избранные города */
+.favorites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.fav-btn {
+  background-color: var(--favorite-color);
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #212529;
+  transition: background 0.2s;
+}
+.fav-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Кнопка очистить избранное */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  margin: 0 auto 0.5rem auto;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Форма поиска */
+.form-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+#cityInput {
+  padding: 0.5rem;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: var(--btn-hover);
+}
+
+/* Сообщение об ошибке */
+.error {
+  margin: 0.5rem auto;
+  color: var(--error-color);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Индикатор загрузки */
+.loading {
+  margin: 0.5rem auto;
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Карта Leaflet */
+.map-container {
+  height: 200px;
+  margin: 0.5rem auto;
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Текущая погода */
+.current-weather {
+  margin: 0.5rem auto;
+  text-align: left;
+  font-size: 0.95rem;
+  width: 100%;
+  max-width: 800px;
+  background-color: #f8f9fa;
+  padding: 0.8rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.current-weather p {
+  margin: 0.3rem 0;
+}
+
+/* Прогноз на 3 дня */
+.daily-forecast {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0.5rem auto;
+  width: 100%;
+  max-width: 800px;
+}
+.day-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+  flex: 1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.day-card p {
+  margin: 0.3rem 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.day-card:hover {
+  background-color: #f0f0f0;
+}
+
+/* Контейнер для графика */
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  margin: 0.5rem auto;
+  position: relative;
+}
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Скрытые элементы */
+.hidden {
+  display: none;
+}

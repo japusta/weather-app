@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast Service</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- Наш CSS -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Прогноз погоды</h1>
+
+      <!-- Переключатель единиц -->
+      <div class="unit-wrapper">
+        <label><input type="radio" name="unit" value="C" checked /> °C</label>
+        <label><input type="radio" name="unit" value="F" /> °F</label>
+      </div>
+
+      <!-- Избранные города -->
+      <div id="favorites" class="favorites"></div>
+      <button id="clearFav" class="btn-secondary hidden">
+        Очистить избранное
+      </button>
+
+      <!-- Форма поиска города -->
+      <div class="form-wrapper">
+        <input
+          type="text"
+          id="cityInput"
+          list="city-list"
+          placeholder="Введите город (Moscow, Berlin …)"
+          autocomplete="off"
+        />
+        <datalist id="city-list"></datalist>
+        <button id="fetchBtn" class="btn">Показать график</button>
+      </div>
+
+      <!-- Сообщение об ошибке -->
+      <div id="errorMsg" class="error hidden"></div>
+
+      <!-- Индикатор загрузки -->
+      <div id="loading" class="loading hidden">Загрузка…</div>
+
+      <!-- Карта Leaflet -->
+      <div id="map" class="map-container"></div>
+
+      <!-- Текущая погода -->
+      <div id="currentWeather" class="current-weather hidden"></div>
+
+      <!-- Прогноз на 3 дня -->
+      <div id="dailyForecast" class="daily-forecast hidden"></div>
+
+      <!-- График 24-часового прогноза -->
+      <div id="chartContainer" class="chart-container hidden">
+        <canvas id="tempChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Точка входа: скомпилированный Main.js -->
+    <script type="module" src="./Main.ts"></script>
+  </body>
+</html>

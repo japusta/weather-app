@@ -1,0 +1,20 @@
+{
+  "name": "weather-frontend",
+  "version": "1.0.0",
+  "description": "Frontend для Weather App (TypeScript + Parcel + Chart.js)",
+  "scripts": {
+    "dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --dist-dir public"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.9",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^4.1.0",
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.18",
+    "parcel": "^2.15.2",
+    "typescript": "^5.8.3"
+  }
+}
