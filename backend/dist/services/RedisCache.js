@@ -4,26 +4,33 @@ exports.RedisCache = void 0;
 const redis_1 = require("redis");
 class RedisCache {
     constructor(redisUrl) {
+        // Создаём клиента
         this.client = (0, redis_1.createClient)({ url: redisUrl });
-        this.client.on('error', (err) => console.error('Redis Error', err));
-        // Подключаемся синхронно в конструкторе
-        this.client.connect().catch((e) => console.error('Redis Connect Error', e));
+        this.client.on('error', (err) => console.error('Redis Client Error', err));
+        // подключаемся асинхронно
+        this.client.connect().catch((err) => console.error('Redis Connect Error', err));
     }
     async get(key) {
-        const raw = await this.client.get(key);
-        if (!raw)
+        const data = await this.client.get(key);
+        console.log(`[RedisCache] GET key="${key}"`);
+        if (!data) {
+            console.log(`[RedisCache] MISS for key="${key}"`);
             return null;
-        try {
-            return JSON.parse(raw);
         }
-        catch (e) {
-            console.warn('RedisCache: failed to parse JSON for key', key, e);
+        // Парсим JSON
+        try {
+            const parsed = JSON.parse(data);
+            console.log(`[RedisCache] HIT for key="${key}"`);
+            return parsed;
+        }
+        catch {
+            console.log(`[RedisCache] ERROR parsing data for key="${key}", returning null`);
             return null;
         }
     }
     async set(key, value, ttlSeconds) {
+        console.log(`[RedisCache] SET key="${key}" (ttl=${ttlSeconds}s)`);
         const str = JSON.stringify(value);
-        // SET ключ с EX = ttlSeconds
         await this.client.set(key, str, { EX: ttlSeconds });
     }
 }

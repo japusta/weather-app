@@ -4,13 +4,15 @@
   "description": "Frontend для Weather App (TypeScript + Parcel + Chart.js)",
   "scripts": {
     "dev": "parcel src/index.html --open",
-    "build": "parcel build src/index.html --dist-dir public"
-  },
+    "build": "parcel build src/index.html --dist-dir public",
+    "serve": "serve public -p 8080"
+    },
   "dependencies": {
     "chart.js": "^4.4.9",
     "chartjs-adapter-date-fns": "^3.0.0",
     "date-fns": "^4.1.0",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.18",

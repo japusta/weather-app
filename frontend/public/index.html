@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang=ru><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>Weather Forecast Service</title><script src=https://cdn.jsdelivr.net/npm/chart.js></script><link rel=stylesheet href=https://unpkg.com/leaflet@1.9.3/dist/leaflet.css><script src=https://unpkg.com/leaflet@1.9.3/dist/leaflet.js></script><link rel=stylesheet href=/frontend.32defafa.css><body>
+    <div class=container>
+      <h1 class=title>Прогноз погоды</h1>
+
+      
+      <div class=unit-wrapper>
+        <label><input type=radio name=unit value=C checked> °C</label>
+        <label><input type=radio name=unit value=F> °F</label>
+      </div>
+
+      
+      <div id=favorites class=favorites></div>
+      <button id=clearFav class="btn-secondary hidden">
+        Очистить избранное
+      </button>
+
+      
+      <div class=form-wrapper>
+        <input id=cityInput list=city-list placeholder="Введите город (Moscow, Berlin …)" autocomplete=off>
+        <datalist id=city-list></datalist>
+        <button id=fetchBtn class=btn>Показать график</button>
+      </div>
+
+      
+      <div id=errorMsg class="error hidden"></div>
+
+      
+      <div id=loading class="hidden loading">Загрузка…</div>
+
+      
+      <div id=map class=map-container></div>
+
+      
+      <div id=currentWeather class="current-weather hidden"></div>
+
+      
+      <div id=dailyForecast class="daily-forecast hidden"></div>
+
+      
+      <div id=chartContainer class="chart-container hidden">
+        <canvas id=tempChart></canvas>
+      </div>
+    </div>
+
+    
+    <script type=module src=/frontend.4626d89b.js></script>
+  
+
