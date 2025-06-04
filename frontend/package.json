@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel src/index.html --open",
     "build": "parcel build src/index.html --dist-dir public",
-    "serve": "serve public -p 8080"
+    "start": "serve public -p 8080"
     },
   "dependencies": {
     "chart.js": "^4.4.9",
