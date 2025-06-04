@@ -69,7 +69,7 @@ npm install
 заполнить файл .env (либо заполнить .env.example и переименовать его в .env)
 
 PORT=3000
-# API-ключ, который будут передавать клиенты (заголовок x-api-key)
+API-ключ, который будут передавать клиенты (заголовок x-api-key)
 API_KEY=abcdefghijkl123456
 REDIS_URL=redis://localhost:6379
 CACHE_TTL_SEC=900
