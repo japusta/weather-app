@@ -66,7 +66,7 @@ cd weather-app/backend
 
 npm install
 
-заполнить файл .env
+заполнить файл .env (либо заполнить .env.example и переименовать его в .env)
 
 PORT=3000
 # API-ключ, который будут передавать клиенты (заголовок x-api-key)
@@ -108,3 +108,26 @@ npm run dev
 npm run build
 
 npm run start
+
+```ПРИМЕРЫ РАБОТЫ```
+
+![{14AF227E-2B1C-4DDD-A352-0BD892449A26}](https://github.com/user-attachments/assets/2e164479-b03d-4e74-bb10-92727f89908d)
+
+![{DA2ABF40-6FBF-44B7-8941-875B30ECBAA4}](https://github.com/user-attachments/assets/1c7cfaf1-15f9-44b4-822f-4f6acc219504)
+
+![{B5E06E96-FEFC-4175-9A73-17957E723C22}](https://github.com/user-attachments/assets/f2687b98-20a0-41ea-948a-27b632eecb25)
+
+![{C1503019-0815-4ED8-8AD7-AD35828ABD98}](https://github.com/user-attachments/assets/e55bc6ef-16f9-4edb-b974-d050302b6050)
+
+Логи сервера, демонстрирующие что данные берутся из кэша при повторном выборе города, если мы уже искали погода для выбранного города
+
+![{BD200AF9-6BDB-4D76-91B8-03F97D317E77}](https://github.com/user-attachments/assets/cd201e3c-0a61-4b14-a8ca-287449a890c6)
+
+Смена единиц измерения температуры
+
+![{DA34F498-97FF-40B3-8A0A-A3F1D71D8E6C}](https://github.com/user-attachments/assets/948b2726-e379-46e5-8898-3f396c509ef5)
+
+Выбор города кликом по карте
+
+![{1585C07B-D09B-4838-A55C-2A75CA5B3AF2}](https://github.com/user-attachments/assets/cf5dbf93-4f44-44b6-a5b9-6dc3a8afaa93)
+
