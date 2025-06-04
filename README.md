@@ -58,7 +58,7 @@ Leaflet (карта)
 
 date-fns (для форматирования дат)
 
-Установка и запуск (Backend)
+```Установка и запуск (Backend)```
 
 git clone https://github.com/japusta/weather-app.git
 
@@ -84,16 +84,18 @@ npm run dev
 npm run build
 npm run start
 
-Для запуска Redis
+```Для запуска Redis```
 
 cd backend
 
 docker compose up
 
+я работал на windows, предварительно перед командой запускал docker desktop
+
 при желании можно заменить RedisCache на In-Memory-Cache в файле WeatherController.ts
 
 
-Установка и запуск (Frontend)
+```Установка и запуск (Frontend)```
 
 cd weather-app/frontend
 
