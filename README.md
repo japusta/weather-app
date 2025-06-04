@@ -1,4 +1,5 @@
 Описание проекта
+
 Приложение состоит из двух частей:
 
 Бэкенд (Node.js + TypeScript)
@@ -7,7 +8,7 @@
 
 При первом запросе за 15 мин (TTL = 900 сек):
 
-Вызывает геокодирующий сервис (Nominatim или Open-Meteo Geocoding) для получения координат latitude/longitude.
+Вызывает геокодирующий сервис (Nominatim (для обратного геокодирования если выбираем город на карте кликом) или Open-Meteo Geocoding) для получения координат latitude/longitude.
 
 Запрашивает почасовой прогноз на 24 часа у Open-Meteo, используя полученные координаты.
 
@@ -19,7 +20,7 @@
 
 Фронтенд (TypeScript + Parcel + Chart.js + Leaflet)
 
-Страница с картой Leaflet, автодополнением поиска городов, переключателем единиц (°C/°F), списком «Избранное» (сохраняется в localStorage).
+Страница с картой Leaflet, автодополнением поиска городов, переключателем единиц (°C/°F), списком "Избранное" (сохраняется в localStorage).
 
 При вводе города или клике по карте:
 
@@ -29,24 +30,25 @@
 
 Кликабельные карточки 3-дневного прогноза: при клике на любую карточку строится почасовой график именно для выбранной даты.
 
-Технологический стек
-Backend
+стек
 
-Node.js (v16+ или выше)
+```Backend```
+
+Node.js 
 
 TypeScript
 
 Redis (для production-кэша) или in-memory (для локальной проверки)
 
-Библиотека axios (или node-fetch) для HTTP-запросов к внешним API
+axios для HTTP-запросов к внешним API
 
-Библиотека redis@4.x для работы с Redis
+Библиотека redis для работы с Redis
 
-Optional: express или fastify (если используется HTTP-сервер)
+
 
 Frontend
 
-Parcel v2 (собирает TS → JS)
+Parcel (собирает TS → JS)
 
 TypeScript
 
@@ -56,8 +58,6 @@ Leaflet (карта)
 
 date-fns (для форматирования дат)
 
-Минимальный CSS (flexbox, стилизация карточек, map-container и т.д.)
-
 Установка и запуск (Backend)
 
 git clone https://github.com/japusta/weather-app.git
@@ -66,9 +66,9 @@ cd weather-app/backend
 
 npm install
 
- файл .env
+заполнить файл .env
 
- PORT=3000
+PORT=3000
 # API-ключ, который будут передавать клиенты (заголовок x-api-key)
 API_KEY=abcdefghijkl123456
 REDIS_URL=redis://localhost:6379
@@ -105,4 +105,4 @@ npm run dev
 
 npm run build
 
-npm run serve
+npm run start
